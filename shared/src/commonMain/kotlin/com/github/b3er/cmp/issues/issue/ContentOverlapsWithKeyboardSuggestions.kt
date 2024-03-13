@@ -3,29 +3,35 @@ package com.github.b3er.cmp.issues.issue
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.Issue
+import com.github.b3er.cmp.issues.KeyboardHeightTracker
 import com.github.b3er.cmp.issues.component.IssueScaffold
-import com.github.b3er.cmp.issues.component.IssueTopBar
 
 /**
  * When changing the keyboard type from no suggestions to suggestions,
  * the content will be overlapped *sometimes* by the suggestions.
  * introduced in: 1.6.0
+ * @see androidx.compose.ui.window.KeyboardVisibilityListener
+ * @see androidx.compose.ui.window.KeyboardVisibilityListenerImpl
  */
 @Composable
 fun Issue.ContentOverlapsWithKeyboardSuggestions(
     modifier: Modifier = Modifier,
     onExit: () -> Unit
 ) {
+    val keyboardSizeFromNotification by KeyboardHeightTracker.state.collectAsState()
+    val insets = WindowInsets.ime.asPaddingValues().calculateBottomPadding()
     IssueScaffold(
-        modifier = modifier.windowInsetsPadding(WindowInsets.ime),
+        modifier = modifier.imePadding(),
         onExit = onExit,
         bottomBar = {
             BottomAppBar {
@@ -50,6 +56,9 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
                 label = { Text("Then tap on this") },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
             )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text("Real keyboard size: $keyboardSizeFromNotification")
+            Text("Insets size: ${insets.value}")
         }
     }
 }

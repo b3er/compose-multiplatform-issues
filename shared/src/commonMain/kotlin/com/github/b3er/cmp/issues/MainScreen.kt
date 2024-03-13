@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.theme.MyApplicationTheme
+import kotlinx.coroutines.flow.StateFlow
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
@@ -49,6 +50,10 @@ private fun IssuesList(modifier: Modifier = Modifier, navigateToIssue: (Issue) -
             }
         }
     }
+}
+
+expect object KeyboardHeightTracker {
+    val state: StateFlow<Float>
 }
 
 
