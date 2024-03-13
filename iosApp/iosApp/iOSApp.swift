@@ -6,7 +6,7 @@ struct iOSApp: App {
 		WindowGroup {
             ZStack {
                 MainScreen()
-                    .ignoresSafeArea(.keyboard)
+                    .ignoresSafeArea(.all)
             }
 		}
 	}

@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.BuildKonfig
 import com.github.b3er.cmp.issues.Issue
 
@@ -30,7 +31,7 @@ fun Issue.IssueScaffold(
     Box(modifier = Modifier.padding(contentPadding)) {
         content()
         Column(
-            modifier = Modifier.align(Alignment.BottomCenter),
+            modifier = Modifier.align(Alignment.BottomCenter).padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(

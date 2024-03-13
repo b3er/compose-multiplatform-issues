@@ -2,6 +2,7 @@ package com.github.b3er.cmp.issues
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.github.b3er.cmp.issues.issue.BottomSheetOverlapsWithKeyboard
 import com.github.b3er.cmp.issues.issue.ContentOverlapsWithKeyboardSuggestions
 import com.github.b3er.cmp.issues.issue.NoCopyPopupInSelectionContainer
 
@@ -26,6 +27,15 @@ enum class IssueItem(
         introducedIn = "1.6.0",
         content = { modifier, onExit ->
             NoCopyPopupInSelectionContainer(modifier, onExit)
+        }
+    ),
+    BottomSheetOverlapsWithKeyboard(
+        title = "Bottom sheet overlaps with keyboard",
+        platforms = listOf(Platform.iOS),
+        introducedIn = "1.5",
+        fixedIn = "1.6.0",
+        content = { modifier, onExit ->
+            BottomSheetOverlapsWithKeyboard(modifier, onExit)
         }
     )
 }

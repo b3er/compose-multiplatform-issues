@@ -16,6 +16,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Compose_Multiplatform_Issues"
+rootProject.name = "ComposeMultiplatformIssues"
 include(":androidApp")
 include(":shared")
