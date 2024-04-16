@@ -47,7 +47,11 @@ enum class IssueItem(
         content = { modifier, onExit ->
             WrongMultilineSnackbarPadding(modifier, onExit)
         }
-    )
+    );
+
+    companion object {
+        val issuesList = entries.sortedBy { !it.fixedIn.isNullOrEmpty() }
+    }
 }
 
 sealed interface Issue : Route {

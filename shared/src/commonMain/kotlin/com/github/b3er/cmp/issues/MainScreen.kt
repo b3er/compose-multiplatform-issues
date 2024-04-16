@@ -39,7 +39,7 @@ private fun IssuesList(modifier: Modifier = Modifier, navigateToIssue: (Issue) -
             modifier = modifier.padding(contentPadding),
             contentPadding = PaddingValues(16.dp)
         ) {
-            items(IssueItem.entries) { issue ->
+            items(IssueItem.issuesList) { issue ->
                 Button(modifier = Modifier.fillMaxWidth(),
                     onClick = { navigateToIssue(issue) }) {
                     Text(issue.title, style = LocalTextStyle.current.let {
