@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.theme.MyApplicationTheme
-import kotlinx.coroutines.flow.StateFlow
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {

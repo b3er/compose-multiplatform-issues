@@ -1,9 +1,6 @@
 package com.github.b3er.cmp.issues.component
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
@@ -21,14 +18,16 @@ import com.github.b3er.cmp.issues.Issue
 fun Issue.IssueScaffold(
     onExit: () -> Unit,
     modifier: Modifier = Modifier,
+    snackbarHost: @Composable () -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     content: @Composable BoxScope.() -> Unit
 ) = Scaffold(
     modifier = modifier,
+    snackbarHost = snackbarHost,
     bottomBar = bottomBar,
     topBar = { IssueTopBar(onExit = onExit) },
 ) { contentPadding ->
-    Box(modifier = Modifier.padding(contentPadding)) {
+    Box(modifier = Modifier.fillMaxSize().padding(contentPadding)) {
         content()
         Column(
             modifier = Modifier.align(Alignment.BottomCenter).padding(16.dp),

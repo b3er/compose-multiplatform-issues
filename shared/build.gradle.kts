@@ -60,7 +60,7 @@ buildkonfig {
     packageName = "com.github.b3er.cmp.issues"
 
     defaultConfigs {
-        buildConfigField(STRING,"kotlinVVersion", libs.versions.kotlin.orNull)
-        buildConfigField(STRING,"composeVersion", libs.versions.jetbrains.compose.orNull)
+        buildConfigField(STRING, "kotlinVVersion", libs.versions.kotlin.orNull)
+        buildConfigField(STRING, "composeVersion", libs.versions.jetbrains.compose.orNull)
     }
 }

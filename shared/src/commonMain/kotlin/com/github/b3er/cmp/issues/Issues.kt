@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import com.github.b3er.cmp.issues.issue.BottomSheetOverlapsWithKeyboard
 import com.github.b3er.cmp.issues.issue.ContentOverlapsWithKeyboardSuggestions
 import com.github.b3er.cmp.issues.issue.NoCopyPopupInSelectionContainer
+import com.github.b3er.cmp.issues.issue.WrongMultilineSnackbarPadding
 
 enum class IssueItem(
     override val title: String,
@@ -37,6 +38,14 @@ enum class IssueItem(
         fixedIn = "1.6.0",
         content = { modifier, onExit ->
             BottomSheetOverlapsWithKeyboard(modifier, onExit)
+        }
+    ),
+    WrongMultilineSnackbarPadding(
+        title = "Wrong bottom padding in 3+ line snackbar",
+        platforms = listOf(Platform.iOS, Platform.Android),
+        introducedIn = "unknown",
+        content = { modifier, onExit ->
+            WrongMultilineSnackbarPadding(modifier, onExit)
         }
     )
 }
