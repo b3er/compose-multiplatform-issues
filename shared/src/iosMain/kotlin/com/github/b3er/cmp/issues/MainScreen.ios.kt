@@ -14,45 +14,18 @@ import kotlinx.coroutines.flow.asStateFlow
 import platform.Foundation.NSNotificationCenter
 import platform.Foundation.NSOperationQueue
 import platform.Foundation.NSValue
-import platform.UIKit.CGRectValue
-import platform.UIKit.UIKeyboardDidHideNotification
-import platform.UIKit.UIKeyboardDidShowNotification
-import platform.UIKit.UIKeyboardFrameEndUserInfoKey
+import platform.UIKit.*
 import platform.posix.printf
 
 @OptIn(ExperimentalComposeApi::class)
 @Suppress("unused", "FunctionName")
 fun MainScreenController() = ComposeUIViewController(
     configure = {
-        platformLayers = false
+        platformLayers = true
         onFocusBehavior = OnFocusBehavior.DoNothing
     }
 ) {
     MainScreen(modifier = Modifier.fillMaxSize())
 }
 
-actual object KeyboardHeightTracker {
-    val _state = MutableStateFlow(0f)
-    actual val state = _state.asStateFlow()
 
-    init {
-        NSNotificationCenter.defaultCenter.addObserverForName(
-            UIKeyboardDidShowNotification,
-            null,
-            NSOperationQueue.mainQueue
-        ) { notification ->
-            (notification?.userInfo?.get(UIKeyboardFrameEndUserInfoKey))?.also { rect ->
-                (rect as? NSValue)?.CGRectValue?.useContents {
-                    _state.value = size.height.toFloat()
-                }
-            }
-        }
-        NSNotificationCenter.defaultCenter.addObserverForName(
-            UIKeyboardDidHideNotification,
-            null,
-            NSOperationQueue.mainQueue
-        ) { notification ->
-            _state.value = 0f
-        }
-    }
-}

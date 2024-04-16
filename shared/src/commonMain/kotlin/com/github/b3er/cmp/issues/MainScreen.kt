@@ -52,10 +52,6 @@ private fun IssuesList(modifier: Modifier = Modifier, navigateToIssue: (Issue) -
     }
 }
 
-expect object KeyboardHeightTracker {
-    val state: StateFlow<Float>
-}
-
 
 
 

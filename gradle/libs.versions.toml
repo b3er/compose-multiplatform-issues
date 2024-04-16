@@ -1,7 +1,7 @@
 [versions]
 agp = "8.2.2"
-kotlin = "1.9.22"
-jetbrains-compose = "1.6.0"
+kotlin = "2.0.0-RC1"
+jetbrains-compose = "1.6.10-dev1583"
 buildkonfig = "0.15.1"
 androidx-activityCompose = "1.8.2"
 

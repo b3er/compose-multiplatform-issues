@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalComposeUiApi::class)
+
 package com.github.b3er.cmp.issues.issue
 
 import androidx.compose.foundation.layout.*
@@ -9,12 +11,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusEvent
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.Issue
-import com.github.b3er.cmp.issues.KeyboardHeightTracker
 import com.github.b3er.cmp.issues.component.IssueScaffold
+import kotlinx.coroutines.flow.StateFlow
 
 /**
  * When changing the keyboard type from no suggestions to suggestions,
@@ -30,6 +35,7 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
 ) {
     val keyboardSizeFromNotification by KeyboardHeightTracker.state.collectAsState()
     val insets = WindowInsets.ime.asPaddingValues().calculateBottomPadding()
+
     IssueScaffold(
         modifier = modifier.imePadding(),
         onExit = onExit,
@@ -39,6 +45,7 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
             }
         },
     ) {
+        val keyboardController = LocalSoftwareKeyboardController.current
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -47,6 +54,12 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
             TextField(
                 value = "",
                 onValueChange = { },
+                modifier = Modifier.onFocusEvent {
+                    if (it.isFocused) {
+                        keyboardController?.hide()
+                        keyboardController?.show()
+                    }
+                },
                 label = { Text("Tap on this first") },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
             )
@@ -61,4 +74,9 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
             Text("Insets size: ${insets.value}")
         }
     }
+}
+
+
+expect object KeyboardHeightTracker {
+    val state: StateFlow<Float>
 }
