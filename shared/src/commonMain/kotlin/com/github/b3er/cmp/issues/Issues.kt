@@ -54,13 +54,6 @@ enum class IssueItem(
     }
 }
 
-sealed interface Issue : Route {
-    val title: String
-    val content: IssueContentComposable
-    val platforms: List<Platform>
-    val introducedIn: String
-    val fixedIn: String?
-}
 
 typealias IssueContentComposable = @Composable Issue.(Modifier, onExit: () -> Unit) -> Unit
 

@@ -28,9 +28,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
     }
 }
 
-sealed interface Route {
-    data object Main : Route
-}
 
 @Composable
 private fun IssuesList(modifier: Modifier = Modifier, navigateToIssue: (Issue) -> Unit) {
@@ -50,8 +47,3 @@ private fun IssuesList(modifier: Modifier = Modifier, navigateToIssue: (Issue) -
         }
     }
 }
-
-
-
-
-
