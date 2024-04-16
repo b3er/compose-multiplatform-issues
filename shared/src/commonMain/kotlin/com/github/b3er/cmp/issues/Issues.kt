@@ -17,6 +17,7 @@ enum class IssueItem(
         title = "Content overlaps with keyboard suggestions",
         platforms = listOf(Platform.iOS),
         introducedIn = "1.6.0",
+        fixedIn = "1.6.10-dev1583",
         content = { modifier, onExit ->
             ContentOverlapsWithKeyboardSuggestions(modifier, onExit)
         }
