@@ -10,6 +10,9 @@ import com.github.b3er.cmp.issues.component.IssueScaffold
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
+/**
+ * 3+ lined snackbar lacks padding on the bottom
+ */
 @Composable
 fun Issue.WrongMultilineSnackbarPadding(
     modifier: Modifier = Modifier,

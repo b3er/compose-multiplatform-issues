@@ -19,6 +19,11 @@ import androidx.compose.ui.unit.sp
 import com.github.b3er.cmp.issues.Issue
 import com.github.b3er.cmp.issues.component.IssueScaffold
 
+/**
+ * The [LineHeightStyle.Trim] for iOs is not working properly in compose multiplatform
+ * @see <a href="https://issuetracker.google.com/issues/202443559">Issue-202443559</a>
+ * @see <a href="https://github.com/JetBrains/compose-multiplatform-core/pull/897">PR-897</a>
+ */
 @Composable
 fun Issue.WrongTextStyleAlignment(modifier: Modifier = Modifier, onExit: () -> Unit) {
     IssueScaffold(
