@@ -2,10 +2,7 @@ package com.github.b3er.cmp.issues
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.github.b3er.cmp.issues.issue.BottomSheetOverlapsWithKeyboard
-import com.github.b3er.cmp.issues.issue.ContentOverlapsWithKeyboardSuggestions
-import com.github.b3er.cmp.issues.issue.NoCopyPopupInSelectionContainer
-import com.github.b3er.cmp.issues.issue.WrongMultilineSnackbarPadding
+import com.github.b3er.cmp.issues.issue.*
 
 enum class IssueItem(
     override val title: String,
@@ -43,10 +40,19 @@ enum class IssueItem(
     WrongMultilineSnackbarPadding(
         title = "Wrong bottom padding in 3+ line snackbar",
         platforms = listOf(Platform.iOS, Platform.Android),
-        introducedIn = "unknown",
+        introducedIn = "initial",
         content = { modifier, onExit ->
             WrongMultilineSnackbarPadding(modifier, onExit)
         }
+    ),
+    WrongTextStyleAlignment(
+        title = "Wrong text style alignment on Trim.None",
+        platforms = listOf(Platform.iOS),
+        introducedIn = "initial",
+        content = { modifier, onExit ->
+            WrongTextStyleAlignment(modifier, onExit)
+        }
+
     );
 
     companion object {
