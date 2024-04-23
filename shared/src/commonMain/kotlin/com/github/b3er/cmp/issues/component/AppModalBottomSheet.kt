@@ -42,45 +42,38 @@ fun AppModalBottomSheet(
     backgroundColor: Color = BottomSheetDefaults.ContainerColor,
     contentColor: Color = contentColorFor(backgroundColor),
     scrimColor: Color = BottomSheetDefaults.ScrimColor,
-    animateContentSize: Boolean = false,
     dragHandle: @Composable (() -> Unit)? = { BottomSheetDefaults.DragHandle() },
     windowInsets: WindowInsets = BottomSheetDefaults.windowInsets,
-    useImePaddingFix: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    var cancelableState by remember { mutableStateOf(true) }
     val sheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true,
         confirmValueChange = {
             // Intercept and disallow hide gesture / action
-            if (it == SheetValue.Hidden && !cancelableState) {
+            if (it == SheetValue.Hidden) {
                 return@rememberModalBottomSheetState false
             }
             true
         }
     )
-
     LaunchedEffect(isVisible) {
-        if (isVisible) {
-            sheetState.show()
-        } else {
+        if (!isVisible) {
             sheetState.hide()
         }
     }
-    if (!isVisible && sheetState.currentValue == sheetState.targetValue && !sheetState.isVisible) {
-        return
+    if (isVisible || sheetState.isVisible) {
+        ModalBottomSheet(
+            sheetState = sheetState,
+            onDismissRequest = onDismissRequest,
+            shape = shape,
+            tonalElevation = elevation,
+            containerColor = backgroundColor,
+            contentColor = contentColor,
+            scrimColor = scrimColor,
+            dragHandle = dragHandle,
+            modifier = modifier,
+            windowInsets = windowInsets,
+            content = content
+        )
     }
-    ModalBottomSheet(
-        sheetState = sheetState,
-        onDismissRequest = onDismissRequest,
-        shape = shape,
-        tonalElevation = elevation,
-        containerColor = backgroundColor,
-        contentColor = contentColor,
-        scrimColor = scrimColor,
-        dragHandle = dragHandle,
-        modifier = modifier,
-        windowInsets = windowInsets,
-        content = content
-    )
 }
