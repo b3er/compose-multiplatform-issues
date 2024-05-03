@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 
 /**
  * Bottom sheet overlaps with keyboard.
- * introduced in: 1.6.0
+ * introduced in: 1.5
  */
 @Composable
 fun Issue.BottomSheetOverlapsWithKeyboard(

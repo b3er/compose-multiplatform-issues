@@ -1,9 +1,9 @@
 [versions]
 agp = "8.2.2"
-kotlin = "2.0.0-RC1"
-jetbrains-compose = "1.6.10-dev1590"
+kotlin = "2.0.0-RC2"
+jetbrains-compose = "1.6.10-beta03"
 buildkonfig = "0.15.1"
-androidx-activityCompose = "1.8.2"
+androidx-activityCompose = "1.9.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -16,3 +16,4 @@ buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig"
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
