@@ -34,7 +34,7 @@ fun Issue.IssueScaffold(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "kotlin: ${BuildKonfig.kotlinVVersion}",
+                text = "kotlin: ${BuildKonfig.kotlinVersion}",
                 style = MaterialTheme.typography.bodySmall,
             )
             Text(

@@ -11,7 +11,6 @@ import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.Issue
 import com.github.b3er.cmp.issues.component.AppModalBottomSheet
 import com.github.b3er.cmp.issues.component.IssueScaffold
-import kotlinx.coroutines.launch
 
 /**
  * Bottom sheet overlaps with keyboard.
