@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
+import kotlinx.coroutines.launch
 
 /**
  * Modal sheet that behaves like bottom sheet and draws over system UI.
@@ -46,25 +47,22 @@ fun AppModalBottomSheet(
     windowInsets: WindowInsets = BottomSheetDefaults.windowInsets,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val sheetState = rememberModalBottomSheetState(
-        skipPartiallyExpanded = true,
-        confirmValueChange = {
-            // Intercept and disallow hide gesture / action
-            if (it == SheetValue.Hidden) {
-                return@rememberModalBottomSheetState false
-            }
-            true
-        }
-    )
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
     LaunchedEffect(isVisible) {
-        if (!isVisible) {
+        if (!isVisible && sheetState.isVisible) {
             sheetState.hide()
         }
     }
+    val scope = rememberCoroutineScope()
     if (isVisible || sheetState.isVisible) {
         ModalBottomSheet(
             sheetState = sheetState,
-            onDismissRequest = onDismissRequest,
+            onDismissRequest = {
+                scope.launch {
+                    sheetState.hide()
+                    onDismissRequest()
+                }
+            },
             shape = shape,
             tonalElevation = elevation,
             containerColor = backgroundColor,
