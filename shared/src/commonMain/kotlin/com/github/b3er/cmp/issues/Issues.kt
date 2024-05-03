@@ -24,6 +24,7 @@ enum class IssueItem(
         title = "No 'Copy' popup in SelectionContainer",
         platforms = listOf(Platform.iOS),
         introducedIn = "1.6.0",
+        fixedIn = "1.6.10-beta03",
         content = { modifier, onExit ->
             NoCopyPopupInSelectionContainer(modifier, onExit)
         }
