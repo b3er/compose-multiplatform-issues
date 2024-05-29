@@ -10,6 +10,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.github.b3er.cmp.issues.resources.Inter_Medium
+import com.github.b3er.cmp.issues.resources.Inter_Regular
+import com.github.b3er.cmp.issues.resources.Res
+import org.jetbrains.compose.resources.Font
 
 @Composable
 fun MyApplicationTheme(
@@ -31,7 +35,7 @@ fun MyApplicationTheme(
     }
     val typography = Typography(
         bodyMedium = TextStyle(
-            fontFamily = FontFamily.Default,
+            fontFamily = FontFamily(Font(Res.font.Inter_Regular)),
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp
         )

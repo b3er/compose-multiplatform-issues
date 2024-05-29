@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <plurals name="time_period_day_wide">
+        <item quantity="zero">%1$d дней</item>
+        <item quantity="one">%1$d день</item>
+        <item quantity="few">%1$d дня</item>
+        <item quantity="many">%1$d дней</item>
+        <item quantity="other">%1$d дней</item>
+    </plurals>
+    <plurals name="time_period_day_wide_from">
+        <item quantity="zero">%1$d дней</item>
+        <item quantity="one">%1$d дня</item>
+        <item quantity="few">%1$d дней</item>
+        <item quantity="many">%1$d дней</item>
+        <item quantity="other">%1$d дней</item>
+    </plurals>
+    <plurals name="time_period_day_short">
+        <item quantity="zero">%1$d дн.</item>
+        <item quantity="one">%1$d д.</item>
+        <item quantity="few">%1$d д.</item>
+        <item quantity="many">%1$d дн.</item>
+        <item quantity="other">%1$d дн.</item>
+    </plurals>
+    <plurals name="time_period_day_narrow">
+        <item quantity="other">%1$d д.</item>
+    </plurals>
+
+    <plurals name="time_period_month_wide">
+        <item quantity="zero">%1$d месяцев</item>
+        <item quantity="one">%1$d месяц</item>
+        <item quantity="few">%1$d месяца</item>
+        <item quantity="many">%1$d месяцев</item>
+        <item quantity="other">%1$d месяцев</item>
+    </plurals>
+    <plurals name="time_period_month_wide_from">
+        <item quantity="zero">%1$d месяцев</item>
+        <item quantity="one">%1$d месяца</item>
+        <item quantity="few">%1$d месяцев</item>
+        <item quantity="many">%1$d месяцев</item>
+        <item quantity="other">%1$d месяцев</item>
+    </plurals>
+    <plurals name="time_period_month_short">
+        <item quantity="other">%1$d мес.</item>
+    </plurals>
+    <plurals name="time_period_month_narrow">
+        <item quantity="other">%1$d м.</item>
+    </plurals>
+
+    <plurals name="time_period_year_wide">
+        <item quantity="zero">%1$d лет</item>
+        <item quantity="one">%1$d год</item>
+        <item quantity="few">%1$d года</item>
+        <item quantity="many">%1$d лет</item>
+        <item quantity="other">%1$d лет</item>
+    </plurals>
+    <plurals name="time_period_year_wide_from">
+        <item quantity="zero">%1$d лет</item>
+        <item quantity="one">%1$d года</item>
+        <item quantity="few">%1$d лет</item>
+        <item quantity="many">%1$d лет</item>
+        <item quantity="other">%1$d лет</item>
+    </plurals>
+    <plurals name="time_period_year_short">
+        <item quantity="zero">%1$d лет</item>
+        <item quantity="one">%1$d год</item>
+        <item quantity="few">%1$d года</item>
+        <item quantity="many">%1$d лет</item>
+        <item quantity="other">%1$d лет</item>
+    </plurals>
+    <plurals name="time_period_year_narrow">
+        <item quantity="other">%1$d г.</item>
+    </plurals>
+    <plurals name="time_duration_hour_wide">
+        <item quantity="zero">%1$d часов</item>
+        <item quantity="one">%1$d час</item>
+        <item quantity="few">%1$d часа</item>
+        <item quantity="many">%1$d часов</item>
+        <item quantity="other">%1$d часов</item>
+    </plurals>
+    <plurals name="time_duration_hour_wide_from">
+        <item quantity="zero">%1$d часов</item>
+        <item quantity="one">%1$d часа</item>
+        <item quantity="few">%1$d часов</item>
+        <item quantity="many">%1$d часов</item>
+        <item quantity="other">%1$d часов</item>
+    </plurals>
+    <plurals name="time_duration_hour_short">
+        <item quantity="other">%1$d ч.</item>
+    </plurals>
+    <plurals name="time_duration_hour_narrow">
+        <item quantity="other">%1$d ч</item>
+    </plurals>
+    <plurals name="time_duration_minute_wide">
+        <item quantity="zero">%1$d минут</item>
+        <item quantity="one">%1$d минута</item>
+        <item quantity="few">%1$d минуты</item>
+        <item quantity="many">%1$d минут</item>
+        <item quantity="other">%1$d минут</item>
+    </plurals>
+    <plurals name="time_duration_minute_wide_from">
+        <item quantity="zero">%1$d минут</item>
+        <item quantity="one">%1$d минуты</item>
+        <item quantity="few">%1$d минут</item>
+        <item quantity="many">%1$d минут</item>
+        <item quantity="other">%1$d минут</item>
+    </plurals>
+    <plurals name="time_duration_minute_short">
+        <item quantity="other">%1$d мин.</item>
+    </plurals>
+    <plurals name="time_duration_minute_narrow">
+        <item quantity="other">%1$d мин</item>
+    </plurals>
+    <plurals name="time_duration_second_wide">
+        <item quantity="zero">%1$d секунд</item>
+        <item quantity="one">%1$d секунда</item>
+        <item quantity="few">%1$d секунды</item>
+        <item quantity="many">%1$d секунд</item>
+        <item quantity="other">%1$d секунд</item>
+    </plurals>
+    <plurals name="time_duration_second_wide_from">
+        <item quantity="zero">%1$d секунд</item>
+        <item quantity="one">%1$d секунды</item>
+        <item quantity="few">%1$d секунд</item>
+        <item quantity="many">%1$d секунд</item>
+        <item quantity="other">%1$d секунд</item>
+    </plurals>
+    <plurals name="time_duration_second_short">
+        <item quantity="other">%1$d сек.</item>
+    </plurals>
+    <plurals name="time_duration_second_narrow">
+        <item quantity="other">%1$d сек</item>
+    </plurals>
+    <plurals name="symbols_quantity">
+        <item quantity="zero">%1$d символов</item>
+        <item quantity="one">%1$d символ</item>
+        <item quantity="few">%1$d символа</item>
+        <item quantity="many">%1$d символов</item>
+        <item quantity="other">%1$d символов</item>
+    </plurals>
+    <plurals name="attempts_left">
+        <item quantity="zero">Осталось %1$d попыток</item>
+        <item quantity="one">Осталась %1$d попытка</item>
+        <item quantity="few">Осталось %1$d попытки</item>
+        <item quantity="many">Осталось %1$d попыток</item>
+        <item quantity="other">Осталось %1$d попыток</item>
+    </plurals>
+    <plurals name="than_years">
+        <item quantity="zero">%1$d лет</item>
+        <item quantity="one">%1$d года</item>
+        <item quantity="two">%1$d лет</item>
+        <item quantity="few">%1$d лет</item>
+        <item quantity="many">%1$d лет</item>
+        <item quantity="other">%1$d лет</item>
+    </plurals>
+    <plurals name="validtion_num_characters">
+        <item quantity="zero">%1$s символов</item>
+        <item quantity="one">%1$s символ</item>
+        <item quantity="two">%1$s символа</item>
+        <item quantity="few">%1$s символа</item>
+        <item quantity="many">%1$s символов</item>
+        <item quantity="other">%1$s символов</item>
+    </plurals>
+
+</resources>

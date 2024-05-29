@@ -1,4 +1,6 @@
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -10,10 +12,9 @@ plugins {
 
 kotlin {
     androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_1_8
         }
     }
 
@@ -32,6 +33,8 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.ui)
             implementation(compose.material3)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -43,6 +46,12 @@ kotlin {
             }
         }
     }
+}
+
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "com.github.b3er.cmp.issues.resources"
+    generateResClass = auto
 }
 
 android {
