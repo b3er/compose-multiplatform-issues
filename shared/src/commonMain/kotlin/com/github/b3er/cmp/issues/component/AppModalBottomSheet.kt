@@ -70,7 +70,7 @@ fun AppModalBottomSheet(
             scrimColor = scrimColor,
             dragHandle = dragHandle,
             modifier = modifier,
-            windowInsets = windowInsets,
+            contentWindowInsets = { windowInsets },
             content = content
         )
     }
