@@ -14,6 +14,8 @@ import com.github.b3er.cmp.issues.resources.Inter_Regular
 import com.github.b3er.cmp.issues.resources.Res
 import kotlinx.cinterop.ExperimentalForeignApi
 import org.jetbrains.compose.resources.Font
+import platform.UIKit.UIFont
+import platform.UIKit.UIFontDescriptor
 
 @OptIn(ExperimentalComposeApi::class)
 @Suppress("unused", "FunctionName")
@@ -24,7 +26,6 @@ fun MainScreenController() = ComposeUIViewController(
     }
 ) {
     MainScreen(modifier = Modifier.fillMaxSize())
-    val font = FontFamily(Font(Res.font.Inter_Regular))
 }
 
 
