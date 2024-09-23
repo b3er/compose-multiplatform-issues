@@ -2,10 +2,7 @@ package com.github.b3er.cmp.issues.issue
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.util.fastForEach
 import com.github.b3er.cmp.issues.Issue
 import com.github.b3er.cmp.issues.component.IssueScaffold
 
@@ -24,6 +22,7 @@ import com.github.b3er.cmp.issues.component.IssueScaffold
  * @see <a href="https://issuetracker.google.com/issues/202443559">Issue-202443559</a>
  * @see <a href="https://github.com/JetBrains/compose-multiplatform-core/pull/897">PR-897</a>
  */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun Issue.WrongTextStyleAlignment(modifier: Modifier = Modifier, onExit: () -> Unit) {
     IssueScaffold(
@@ -32,23 +31,41 @@ fun Issue.WrongTextStyleAlignment(modifier: Modifier = Modifier, onExit: () -> U
     ) {
         Column(
             modifier = Modifier.fillMaxWidth().align(Alignment.Center),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                val textModifier = Modifier.border(
-                    BorderStroke(
-                        width = 1.dp,
-                        color = MaterialTheme.colorScheme.primary
+            trimModes.fastForEach { trim ->
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    val textModifier = Modifier.border(
+                        BorderStroke(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary
+                        )
                     )
-                )
-                Text("Center\naligned", style = CenterAlignedTextStyle, modifier = textModifier)
-                Text("Top\naligned", style = TopAlignedTextStyle, modifier = textModifier)
-                Text("Bottom\naligned", style = BottomAlignedTextStyle, modifier = textModifier)
-                Text(
-                    "Proportional\naligned",
-                    style = ProportionalAlignedTextStyle,
-                    modifier = textModifier
-                )
+                    alignmentModes.fastForEach { alignment ->
+                        Text(
+                            alignment
+                                .toString()
+                                .split(".")
+                                .lastOrNull() +
+                                "\n" +
+                                trim
+                                    .toString()
+                                    .split(".")
+                                    .lastOrNull(),
+                            style = IssueTextStyle.copy(
+                                lineHeightStyle = LineHeightStyle(
+                                    alignment,
+                                    trim
+                                )
+                            ),
+                            modifier = textModifier
+                        )
+                    }
+                }
             }
         }
     }
@@ -60,28 +77,15 @@ private val IssueTextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
 )
 
-private val CenterAlignedTextStyle = IssueTextStyle.copy(
-    lineHeightStyle = LineHeightStyle(
-        alignment = LineHeightStyle.Alignment.Center,
-        trim = LineHeightStyle.Trim.None
-    )
+private val alignmentModes = listOf(
+    LineHeightStyle.Alignment.Center,
+    LineHeightStyle.Alignment.Top,
+    LineHeightStyle.Alignment.Bottom,
+    LineHeightStyle.Alignment.Proportional
 )
-private val TopAlignedTextStyle = IssueTextStyle.copy(
-    lineHeightStyle = LineHeightStyle(
-        alignment = LineHeightStyle.Alignment.Top,
-        trim = LineHeightStyle.Trim.None
-    )
-)
-
-private val BottomAlignedTextStyle = IssueTextStyle.copy(
-    lineHeightStyle = LineHeightStyle(
-        alignment = LineHeightStyle.Alignment.Bottom,
-        trim = LineHeightStyle.Trim.None
-    )
-)
-private val ProportionalAlignedTextStyle = IssueTextStyle.copy(
-    lineHeightStyle = LineHeightStyle(
-        alignment = LineHeightStyle.Alignment.Proportional,
-        trim = LineHeightStyle.Trim.None
-    )
+private val trimModes = listOf(
+    LineHeightStyle.Trim.None,
+    LineHeightStyle.Trim.FirstLineTop,
+    LineHeightStyle.Trim.LastLineBottom,
+    LineHeightStyle.Trim.Both
 )
