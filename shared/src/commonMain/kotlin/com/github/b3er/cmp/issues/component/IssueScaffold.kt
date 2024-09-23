@@ -1,8 +1,6 @@
 package com.github.b3er.cmp.issues.component
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -10,6 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.github.b3er.cmp.issues.BuildKonfig
 import com.github.b3er.cmp.issues.Issue
+import com.github.b3er.cmp.issues.resources.Res
+import com.github.b3er.cmp.issues.resources.ic_arrow_left
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * Standard scaffold for an issue screen.
@@ -54,7 +55,7 @@ fun Issue.IssueTopBar(onExit: () -> Unit) = TopAppBar(
     navigationIcon = {
         IconButton(onClick = onExit) {
             Icon(
-                Icons.Filled.ArrowBack,
+                painter = painterResource(Res.drawable.ic_arrow_left),
                 contentDescription = "back"
             )
         }
