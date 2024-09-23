@@ -35,7 +35,17 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
 ) {
     val keyboardSizeFromNotification by KeyboardHeightTracker.state.collectAsState()
     val insets = WindowInsets.ime.asPaddingValues().calculateBottomPadding()
+    IssueScaffold(
+        modifier = modifier.imePadding(),
+        onExit = onExit,
+        bottomBar = {
+            BottomAppBar {
+                Text("Bottom App Bar will be overlapped by keyboard suggestions.")
+            }
+        },
+    ) {
 
+    }
     IssueScaffold(
         modifier = modifier.imePadding(),
         onExit = onExit,

@@ -28,7 +28,6 @@ fun MainScreen(modifier: Modifier = Modifier) {
     }
 }
 
-
 @Composable
 private fun IssuesList(modifier: Modifier = Modifier, navigateToIssue: (Issue) -> Unit) {
     Scaffold(modifier = Modifier.fillMaxSize()) { contentPadding ->

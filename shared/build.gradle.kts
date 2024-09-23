@@ -48,12 +48,6 @@ kotlin {
     }
 }
 
-compose.resources {
-    publicResClass = true
-    packageOfResClass = "com.github.b3er.cmp.issues.resources"
-    generateResClass = auto
-}
-
 android {
     namespace = "com.github.b3er.cmp.issues"
     compileSdk = 34
@@ -65,7 +59,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
-
+compose {
+    resources {
+        publicResClass = true
+        packageOfResClass = "com.github.b3er.cmp.issues.resources"
+        generateResClass = auto
+    }
+}
 buildkonfig {
     packageName = "com.github.b3er.cmp.issues"
 
