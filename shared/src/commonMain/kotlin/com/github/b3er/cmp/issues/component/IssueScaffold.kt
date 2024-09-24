@@ -2,6 +2,7 @@ package com.github.b3er.cmp.issues.component
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -54,7 +55,7 @@ fun Issue.IssueTopBar(onExit: () -> Unit) = TopAppBar(
     navigationIcon = {
         IconButton(onClick = onExit) {
             Icon(
-                imageVector = Icons.AutoMirrored.Default.ArrowForward,
+                imageVector = Icons.AutoMirrored.Default.ArrowBack,
                 contentDescription = "back",
                 modifier = Modifier.size(16.dp)
             )
