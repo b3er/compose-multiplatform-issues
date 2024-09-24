@@ -57,7 +57,6 @@ fun Issue.IssueTopBar(onExit: () -> Unit) = TopAppBar(
             Icon(
                 imageVector = Icons.AutoMirrored.Default.ArrowBack,
                 contentDescription = "back",
-                modifier = Modifier.size(16.dp)
             )
         }
     },
