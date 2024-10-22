@@ -52,8 +52,8 @@ enum class IssueItem(
         introducedIn = "initial",
         content = { modifier, onExit ->
             WrongTextStyleAlignment(modifier, onExit)
-        }
-
+        },
+        fixedIn = "1.8.0-dev1890"
     );
 
     companion object {
