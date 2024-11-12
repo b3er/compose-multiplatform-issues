@@ -44,17 +44,6 @@ fun Issue.ContentOverlapsWithKeyboardSuggestions(
             }
         },
     ) {
-
-    }
-    IssueScaffold(
-        modifier = modifier.imePadding(),
-        onExit = onExit,
-        bottomBar = {
-            BottomAppBar {
-                Text("Bottom App Bar will be overlapped by keyboard suggestions.")
-            }
-        },
-    ) {
         val keyboardController = LocalSoftwareKeyboardController.current
         Column(
             modifier = Modifier.fillMaxSize(),

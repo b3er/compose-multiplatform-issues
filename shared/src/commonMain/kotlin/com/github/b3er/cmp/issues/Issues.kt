@@ -54,6 +54,14 @@ enum class IssueItem(
             WrongTextStyleAlignment(modifier, onExit)
         },
         fixedIn = "1.8.0-dev1890"
+    ),
+    NativeCrashAfterResume(
+        title = "Native crash on resume",
+        platforms = listOf(Platform.iOS),
+        introducedIn = "initial",
+        content = { modifier, onExit ->
+            NativeCrashAfterResume(modifier, onExit)
+        }
     );
 
     companion object {
